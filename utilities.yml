@@ -1,0 +1,22 @@
+---
+- name: Install Utilities
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install utility packages
+      apt:
+        pkg:
+          - ack
+          - bzip2
+          - curl
+          - htop
+          - tree
+          - unzip
+        state: present
+
+- name: Install Utilities
+  hosts: localhost
+  roles:
+    - git
+    - moby
+

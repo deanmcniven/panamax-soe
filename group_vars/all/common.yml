@@ -1,0 +1,11 @@
+---
+
+tmux_copy_to_system_clipboard: false
+tmux_install_battery_indicator: false
+tmux_prefix_bindings:
+  - C-b
+
+git_install_meld: false
+git_email: "deanmcniven@users.noreply.github.com"
+git_username: "Dean McNiven"
+
