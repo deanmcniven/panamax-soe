@@ -2,6 +2,18 @@
 - name: Configure Look and Feel
   hosts: localhost
   roles:
+    - set-user-facts
     - bash
     - tmux
     - vim
+  tasks:
+    - name: Set TMUX to launch on SSH shell entry
+      blockinfile:
+        path: "{{ local_user_homedir }}/.bashrc"
+        marker_begin: "BEGIN TMUX SSH EXEC"
+        marker_end: "END TMUX SSH EXEC"
+        block: |
+          if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+              tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+          fi
+
