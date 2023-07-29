@@ -1,0 +1,21 @@
+---
+- name: Disable Ubuntu Local DNS service
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Set DNS to default
+      lineinfile:
+        path: /etc/systemd/resolved.conf
+        regexp: '^#DNS=.*$'
+        line: DNS=default
+    - name: Disable DNS Stub Listener
+      lineinfile:
+        path: /etc/systemd/resolved.conf
+        regexp: '^#DNSStubListener=.*$'
+        line: DNSStubListener=no
+    - name: Link resolv.conf
+      file:
+        src: /run/systemd/resolve/resolv.conf
+        dest: /etc/resolv.conf
+        state: link
+        force: true
