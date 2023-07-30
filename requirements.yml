@@ -10,6 +10,10 @@
   src: https://github.com/deanmcniven/ansible-moby
   version: origin/master
 
+- name: pihole
+  src: https://github.com/deanmcniven/ansible-pihole
+  version: origin/main
+
 - name: set-user-facts
   src: https://github.com/deanmcniven/ansible-set-user-facts
   version: origin/master
