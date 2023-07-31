@@ -11,5 +11,3 @@ git_install_meld: false
 git_email: "deanmcniven@users.noreply.github.com"
 git_username: "Dean McNiven"
 
-moby_enable_userns_remap: true
-
